@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Marks Calculator</title>
+  <link rel="stylesheet" href="grading.css">
+  <script src="grading.js" defer ></script>
+</head>
+<body>
+  <h1>Student Marks Calculator</h1>
+
+  <div class="container" role="main" aria-label="Student marks calculator">
+    <!-- School & Class Info -->
+    <div class="form-control">
+      <label for="schoolName">School Name:</label>
+      <input type="text" id="schoolName" placeholder="e.g., Springfield High" aria-describedby="schoolHelp" />
+      <label for="className">Class:</label>
+      <input type="text" id="className" placeholder="e.g., Grade 9" aria-describedby="classHelp" />
+    </div>
+
+    <!-- Action Buttons -->
+    <div id="controls" aria-label="Controls to add subjects, students and calculate">
+      <button id="addSubjectBtn" aria-haspopup="dialog" aria-controls="subjectModal">Add Subject</button>
+      <button id="addStudentBtn" aria-haspopup="dialog" aria-controls="studentModal">Add Student</button>
+      <button id="calculateBtn">Calculate Results</button>
+    </div>
+
+    <!-- Marks Input Table -->
+    <div class="table-wrapper" aria-label="Input table for student marks">
+      <table id="marksTable" role="grid" aria-readonly="false" aria-multiselectable="false">
+        <thead>
+          <tr>
+            <th scope="col" aria-sort="none">Student Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamic student rows go here -->
+        </tbody>
+        <tfoot>
+          <!-- Could be used for live averages if needed -->
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- Output Results -->
+    <div id="output" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <!-- Subject Modal -->
+  <div id="subjectModalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="subjectModalTitle" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2 id="subjectModalTitle">Add New Subject</h2>
+      <label for="subjectNameInput">Subject Name:</label>
+      <input type="text" id="subjectNameInput" autocomplete="off" />
+      <div id="subjectError" class="error-msg" aria-live="assertive"></div>
+      <div class="modal-buttons">
+        <button class="cancel" id="subjectCancelBtn">Cancel</button>
+        <button class="submit" id="subjectAddBtn">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Modal -->
+  <div id="studentModalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="studentModalTitle" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2 id="studentModalTitle">Add New Student</h2>
+      <label for="studentNameInput">Student Name:</label>
+      <input type="text" id="studentNameInput" autocomplete="off" />
+      <div id="studentError" class="error-msg" aria-live="assertive"></div>
+      <div class="modal-buttons">
+        <button class="cancel" id="studentCancelBtn">Cancel</button>
+        <button class="submit" id="studentAddBtn">Add</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
